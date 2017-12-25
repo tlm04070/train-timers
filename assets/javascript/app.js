@@ -23,11 +23,15 @@ $(document).ready(function () {
     var trainDest = $("#train-destination-input").val().trim();
     var trainStart = moment($("#train-time-input").val().trim(), "HH:mm").format("HH:mm a");
     var trainFreq = moment($("#train-frequency-input").val().trim(), "mm").format("mm");
+
+
+
     var formated = moment(trainStart, "hh:mm").subtract(1, "years");
     var diff = moment().diff(moment(formated), "minutes");
     var apart = diff % trainFreq;
     var away = trainFreq - apart;
     var arrival = moment().add(away, "minutes").format("hh:mm");
+
 
 
 
@@ -42,17 +46,9 @@ $(document).ready(function () {
     };
 
 
-
     // Uploads train data to the database
     database.ref().push(newTrain);
 
-    // Logs everything to console
-    // console.log(newTrain.name);
-    // console.log(newTrain.destination);
-    // console.log(newTrain.start);
-    // console.log(newTrain.frequency);
-    // console.log(newTrain.away);
-    // console.log(newTrain.arrival);
 
     // Alert with train whistle playing
     audio.play();
@@ -79,25 +75,15 @@ $(document).ready(function () {
     var trainAway = childSnapshot.val().away;
 
 
-    // Train Info
-    // console.log(trainName);
-    // console.log(trainDest);
-    // console.log(trainStart);
-    // console.log(trainFreq);
-    // console.log(trainArrival);
-    // console.log(trainAway);
-
-
-
     // Add each train's data into the table
-    $("#train-table > tbody").append(
-      "<tr><td>" + trainName +
-      "</td><td>" + trainDest +
-      "</td><td>" + trainFreq + " mins" +
-      "</td><td>" + trainArrival +
-      "</td><td>" + trainAway + " mins" +
-      "</td></tr>");
+    $("#train-table > tbody").append([
+      $("<tr><td>").text(trainName),
+      $("</td><td>").text(trainDest),
+      $("</td><td>").text(trainFreq), " mins" +
+      $("</td><td>").text(trainArrival),
+      $("</td><td>").text(trainAway), " mins" +
+      "</td></tr>"
+    ]);
   });
-
 
 });

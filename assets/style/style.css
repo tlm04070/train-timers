@@ -1,26 +1,26 @@
 .container {
-    background: rgba(191, 180, 143, .4)
+  background: rgba(191, 180, 143, 0.4);
 }
 
 .jumbotron,
 .card-header,
 .btn {
-    background: rgba(144, 78, 85, .8);
+  background: rgba(8, 75, 125, 0.4);
 }
 
 .card-body {
-    background: rgba(242, 239, 233, .4)
+  background: rgba(242, 239, 233, 0.4);
 }
 
 .card-title {
-    color: white;
+  color: white;
 }
 
 .card {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 th,
 label {
-    color: rgba(37, 38, 39, .8);
+  color: rgba(37, 38, 39, 0.8);
 }
